@@ -42,7 +42,6 @@ struct GetStartedView: View {
             }
             .padding()
         }
-        .navigationTitle("Get Started")
     }
 }
 
