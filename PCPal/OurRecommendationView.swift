@@ -70,11 +70,11 @@ struct OurRecommendationView: View {
                     }
                     Divider()
                     Text("""
-                            CPU: Intel Core i9-13900K
+                            CPU: Ryzen 7 9800X3D
                             GPU: NVIDIA RTX 4090
                             RAM: 32GB DDR5
                             Storage: 2TB NVMe SSD
-                            OS: Windows 11 Pro›
+                            OS: Windows 11 Home
                             """)
                 }
                 .padding()
