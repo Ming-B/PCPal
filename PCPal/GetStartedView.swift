@@ -12,8 +12,8 @@ struct GetStartedView: View {
         ScrollView{
             VStack(alignment: .center, spacing: 16) {
                 Text("Getting Started")
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.blue)
                 
                 HStack {
                     Text("Welcome to PCPal")
