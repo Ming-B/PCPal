@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct OurRecommendationView: View {
-    @State private var showDetails = false;
-    @State private var chevronRotate = 0.0
+    @State private var showBudget = false;
+    @State private var showMid = false;
+    @State private var showHigh = false;
+
+
     
     var body: some View {
         Text("Our PC Builds")
@@ -23,19 +26,14 @@ struct OurRecommendationView: View {
             HStack {
                 Button("", systemImage: "chevron.right") {
                     withAnimation(.linear) {
-                        showDetails.toggle()
-                        if showDetails {
-                            chevronRotate += 90.0
-                        }
-                        else {
-                            chevronRotate -= 90.0
-                        }
+                        showBudget.toggle()
+   
                     }
                 }
-                .rotationEffect(.degrees(chevronRotate))
+                .rotationEffect(.degrees(showBudget ? 90 : 0))
                 Section(header: Text("Budget Tier").font(.headline)) {
                     
-                    if showDetails {
+                    if showBudget {
                         Text("CPU: Intel Core i5-10300H\nGPU: NVIDIA GeForce GTX 1650 Super\nRAM: 8GB DDR4\nStorage: 512GB SSD\nOperating System: Windows 10 Home")
                     }
                     
@@ -49,19 +47,13 @@ struct OurRecommendationView: View {
         HStack {
             Button("", systemImage: "chevron.right") {
                 withAnimation(.linear) {
-                    showDetails.toggle()
-                    if showDetails {
-                        chevronRotate += 90.0
-                    }
-                    else {
-                        chevronRotate -= 90.0
-                    }
+                    showMid.toggle()
                 }
             }
-            .rotationEffect(.degrees(chevronRotate))
+            .rotationEffect(.degrees(showMid ? 90 : 0))
             Section(header: Text("Mid-Tier").font(.headline)) {
                 
-                if showDetails {
+                if showMid {
                     Text("CPU: Intel Core i5-10300H\nGPU: NVIDIA GeForce GTX 1650 Super\nRAM: 8GB DDR4\nStorage: 512GB SSD\nOperating System: Windows 10 Home")
                 }
                 
@@ -75,19 +67,13 @@ struct OurRecommendationView: View {
         HStack {
             Button("", systemImage: "chevron.right") {
                 withAnimation(.linear) {
-                    showDetails.toggle()
-                    if showDetails {
-                        chevronRotate += 90.0
-                    }
-                    else {
-                        chevronRotate -= 90.0
-                    }
+                    showHigh.toggle()
                 }
             }
-            .rotationEffect(.degrees(chevronRotate))
+            .rotationEffect(.degrees(showHigh ? 90 : 0))
             Section(header: Text("High End").font(.headline)) {
                 
-                if showDetails {
+                if showHigh {
                     Text("CPU: Intel Core i5-10300H\nGPU: NVIDIA GeForce GTX 1650 Super\nRAM: 8GB DDR4\nStorage: 512GB SSD\nOperating System: Windows 10 Home")
                 }
                 
