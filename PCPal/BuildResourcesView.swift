@@ -74,8 +74,8 @@ struct BuildResourcesView: View {
         ScrollView {
             VStack(alignment: .center, spacing: 16) {
                 Text("Build Resources")
-                    .font(.title)
-                    .fontWeight(.bold)
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.blue)
                 
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Intro to PC Building Videos")

@@ -12,9 +12,8 @@ struct WelcomeScreenView: View {
         NavigationStack {
             VStack(alignment: .center, spacing: 10) {
                 Text("Home")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.blue)
                 
                 List {
                     NavigationLink(destination: GetStartedView()) {
