@@ -42,6 +42,7 @@ struct WelcomeScreenView: View {
                             .padding(.vertical, 12)
                     }
                 }
+                .listStyle(.plain)
             }
         }
     }
