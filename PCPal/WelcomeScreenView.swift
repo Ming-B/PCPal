@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeScreenView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(alignment: .center, spacing: 10) {
                 Text("Home")
                     .font(.title)
@@ -19,7 +19,7 @@ struct WelcomeScreenView: View {
                 List {
                     NavigationLink(destination: GetStartedView()) {
                         Image(systemName: "play.fill")
-                        Text("Get Started")
+                        Text("Getting Started")
                             .font(.title3)
                             .padding(.vertical, 12)
                     }
