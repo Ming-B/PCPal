@@ -30,8 +30,8 @@ struct OurRecommendationView: View {
                     Text("""
                             CPU: Intel Core i5-10300H
                             GPU: NVIDIA GTX 1650 Super
-                            RAM: 8GB DDR4
-                            Storage: 512GB SSD
+                            RAM: 32GB DDR4
+                            Storage: 1 TB SSD
                             OS: Windows 10 Home
                             """)
                 }
