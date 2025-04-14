@@ -14,6 +14,6 @@ struct PCPalApp: App {
         WindowGroup {
             CartView()
         }
-        .modelContainer(for: PCCart.self)
+        .modelContainer(for: Cart.self)
     }
 }
