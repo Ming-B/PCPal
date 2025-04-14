@@ -41,9 +41,6 @@ struct PowerSupplyView: View {
                             if let price = psu.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
-                            if let wattage = psu.wattage {
-                                Text("Wattage - \(wattage, specifier: "%.0f") W")
-                            }
                         }
                     } else {
                         Text("No Power Supply In Cart")

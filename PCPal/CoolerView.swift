@@ -41,14 +41,6 @@ struct CoolerView: View {
                             if let price = cooler.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
-                            if let rpm = cooler.rpm {
-                                switch rpm {
-                                case .int(let value):
-                                    Text("Fan RPM - \(value, specifier: "%.0f")")
-                                case .array(let values):
-                                    Text("Fan RPMs - \(values.map { String($0) }.joined(separator: ", "))")
-                                }
-                            }
                         }
                     } else {
                         Text("No Cooler In Cart")
