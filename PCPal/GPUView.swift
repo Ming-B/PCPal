@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct GPUView: View {
+//    @State var GPUS: [GPU]
     @State var GPUS: [GPU]
     var body: some View {
-        VStack {
+        VStack{
             List {
-                ForEach(GPUS) { gpu in
-                    Text(gpu.name)
+                ForEach($GPUS) { $gpu in
+                    MiniGPUView(GPU: $gpu)
                 }
             }
         }
@@ -21,5 +22,5 @@ struct GPUView: View {
 }
 
 #Preview {
-    GPUView(GPUS: loadJson(filename: "video-card") ?? [])
+    GPUView(GPUS: loadGPU(filename: "video-card") ?? [])
 }
