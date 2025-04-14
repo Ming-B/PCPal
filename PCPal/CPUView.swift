@@ -1,5 +1,5 @@
 //
-//  GPUView.swift
+//  CPUView.swift
 //  PCPal
 //
 //  Created by Sam King on 4/12/25.
@@ -8,12 +8,12 @@
 import SwiftUI
 import SwiftData
 
-struct GPUView: View {
-    @State var GPUS: [GPU]
+struct CPUView: View {
+    @State var CPUS: [CPU]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
 
-    @State private var selectedGPUName: String = ""
+    @State private var selectedCPUName: String = ""
 
     var cart: Cart {
         if let existingCart = carts.first {
@@ -26,8 +26,8 @@ struct GPUView: View {
         }
     }
 
-    func updateGPU(gpu: GPU) {
-        cart.gpu = gpu
+    func updateCPU(cpu: CPU) {
+        cart.cpu = cpu
         try? modelContext.save()
     }
 
@@ -35,44 +35,42 @@ struct GPUView: View {
         VStack {
             List {
                 HStack {
-                    if let gpu = cart.gpu {
+                    if let cpu = cart.cpu {
                         VStack(alignment: .leading) {
-                            Text(gpu.name)
-                            if let price = gpu.price {
+                            Text(cpu.name)
+                            if let price = cpu.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
-                            }
-                            if let memory = gpu.memory {
-                                Text("Memory - \(memory, specifier: "%.0f") GB")
                             }
                         }
                     } else {
-                        Text("No GPU In Cart")
+                        Text("No CPU In Cart")
                             .foregroundColor(.gray)
                     }
                 }
 
-                Picker("Select GPU", selection: $selectedGPUName) {
-                    ForEach(GPUS, id: \.name) { gpu in
-                        Text(gpu.name).tag(gpu.name)
+                Picker("Select CPU", selection: $selectedCPUName) {
+                    ForEach(CPUS, id: \.name) { cpu in
+                        Text(cpu.name).tag(cpu.name)
                     }
                 }
                 .pickerStyle(MenuPickerStyle())
             }
         }
         .onAppear {
-            if let savedGPU = cart.gpu {
-                selectedGPUName = savedGPU.name
-                print(savedGPU)
+            if let savedCPU = cart.cpu {
+                selectedCPUName = savedCPU.name
+                print(savedCPU)
             }
         }
-        .onChange(of: selectedGPUName) { newName in
-            if let newGPU = GPUS.first(where: { $0.name == newName }) {
-                updateGPU(gpu: newGPU)
+        .onChange(of: selectedCPUName) { newName in
+            if let newCPU = CPUS.first(where: { $0.name == newName }) {
+                updateCPU(cpu: newCPU)
             }
         }
     }
 }
 
 #Preview {
-    GPUView(GPUS: loadJson(filename: "video-card") ?? [])
+    CPUView(CPUS: loadCPU(filename: "cpu") ?? [])
 }
+
