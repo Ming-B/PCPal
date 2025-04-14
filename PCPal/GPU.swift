@@ -12,7 +12,7 @@ struct GPU : Identifiable, Codable {
     var length: Double?
 }
 
-func loadGPU(filename fileName: String) -> [GPU]? {
+func loadJson(filename fileName: String) -> [GPU]? {
     if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
