@@ -1,23 +1,22 @@
 import Foundation
 
-struct GPU : Identifiable, Codable {
+struct ComputerCase : Identifiable, Codable {
     let id = UUID()
     var name: String
-    var price: Double?
-    var chipset: String?
-    var memory: Double?
-    var core_clock: Double?
-    var boost_clock: Double?
+    var type: String?
     var color: String?
-    var length: Double?
+    var psu: Double?
+    var side_panel: String?
+    var external_volume: Double?
+    var internal_35_bays: Int?
 }
 
-func loadGPU(filename fileName: String) -> [GPU]? {
+func loadCase(filename fileName: String) -> [ComputerCase]? {
     if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let jsonData = try decoder.decode([GPU].self, from: data)
+            let jsonData = try decoder.decode([ComputerCase].self, from: data)
             return jsonData
         } catch {
             print("error:\(error)")
