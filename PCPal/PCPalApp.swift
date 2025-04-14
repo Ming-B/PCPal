@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PCPalApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CartView()
         }
+        .modelContainer(for: PCCart.self)
     }
 }
