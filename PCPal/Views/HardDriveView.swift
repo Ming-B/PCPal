@@ -61,6 +61,7 @@ struct StorageView: View {
                 }
 
                 Picker("Select Storage", selection: $selectedStorageName) {
+                    Text("").tag("")
                     ForEach(storages, id: \.id) { storage in
                         Text(storage.name).tag(storage.name)
                     }
