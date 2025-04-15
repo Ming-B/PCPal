@@ -15,7 +15,8 @@ func loadCooler(filename fileName: String) -> [CPUCooler]? {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             let jsonData = try decoder.decode([CPUCooler].self, from: data)
-            return jsonData
+            let oneThirdCount = max(1, jsonData.count / 3)
+            return Array(jsonData.prefix(oneThirdCount))
         } catch {
             print("error:\(error)")
         }
