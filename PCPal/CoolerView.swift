@@ -71,7 +71,7 @@ struct CoolerView: View {
                 print(savedCooler)
             }
         }
-        .onChange(of: selectedCoolerName) { newName in
+        .onChange(of: selectedCoolerName) { oldValue, newName in
             if let newCooler = coolers.first(where: { $0.name == newName }) {
                 updateCooler(cooler: newCooler)
             }

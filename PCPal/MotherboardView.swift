@@ -74,7 +74,7 @@ struct MotherboardView: View {
                 print(savedMotherboard)
             }
         }
-        .onChange(of: selectedMotherboardName) { newName in
+        .onChange(of: selectedMotherboardName) { oldValue, newName in
             if let newMotherboard = Motherboards.first(where: { $0.name == newName }) {
                 updateMotherboard(motherboard: newMotherboard)
             }

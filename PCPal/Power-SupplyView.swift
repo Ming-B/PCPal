@@ -74,7 +74,7 @@ struct PowerSupplyView: View {
                 print(savedPSU)
             }
         }
-        .onChange(of: selectedPSUName) { newName in
+        .onChange(of: selectedPSUName) { oldValue, newName in
             if let newPSU = PSUS.first(where: { $0.name == newName }) {
                 updatePSU(psu: newPSU)
             }

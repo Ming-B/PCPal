@@ -74,7 +74,7 @@ struct ComputerCaseView: View {
                 print(savedComputerCase)
             }
         }
-        .onChange(of: selectedComputerCaseName) { newName in
+        .onChange(of: selectedComputerCaseName) { oldValue, newName in
             if let newComputerCase = ComputerCases.first(where: { $0.name == newName }) {
                 updateComputerCase(computercase: newComputerCase)
             }

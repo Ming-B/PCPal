@@ -77,7 +77,7 @@ struct CPUView: View {
                 print(savedCPU)
             }
         }
-        .onChange(of: selectedCPUName) { newName in
+        .onChange(of: selectedCPUName) { oldValue, newName in
             if let newCPU = CPUS.first(where: { $0.name == newName }) {
                 updateCPU(cpu: newCPU)
             }

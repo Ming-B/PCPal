@@ -74,7 +74,7 @@ struct StorageView: View {
                 print(savedStorage)
             }
         }
-        .onChange(of: selectedStorageName) { newName in
+        .onChange(of: selectedStorageName) { oldValue, newName in
             if let newStorage = storages.first(where: { $0.name == newName }) {
                 updateStorage(storage: newStorage)
             }

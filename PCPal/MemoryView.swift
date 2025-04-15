@@ -78,7 +78,7 @@ struct MemoryView: View {
                 print(savedMemory)
             }
         }
-        .onChange(of: selectedMemoryName) { newName in
+        .onChange(of: selectedMemoryName) { oldValue, newName in
             if let newMemory = memories.first(where: { $0.name == newName }) {
                 updateMemory(memory: newMemory)
             }

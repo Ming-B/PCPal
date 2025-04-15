@@ -80,7 +80,7 @@ struct GPUView: View {
                 print(savedGPU)
             }
         }
-        .onChange(of: selectedGPUName) { newName in
+        .onChange(of: selectedGPUName) { oldValue, newName in
             if let newGPU = GPUS.first(where: { $0.name == newName }) {
                 updateGPU(gpu: newGPU)
             }
