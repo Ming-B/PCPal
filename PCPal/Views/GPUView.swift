@@ -48,10 +48,10 @@ struct GPUView: View {
                                 Text("Memory - \(memory, specifier: "%.0f") GB")
                             }
                             if let core_clock = gpu.core_clock {
-                                Text("Core Clock - \(core_clock, specifier: "%.2f") GHz")
+                                Text("Core Clock - \(core_clock, specifier: "%.2f") Hz")
                             }
                             if let boost_clock = gpu.boost_clock {
-                                Text("Boost Clock - \(boost_clock, specifier: "%.2f") GHz")
+                                Text("Boost Clock - \(boost_clock, specifier: "%.2f") Hz")
                             }
                             if let color = gpu.color {
                                 Text("Color - \(color)")

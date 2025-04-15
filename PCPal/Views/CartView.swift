@@ -47,7 +47,9 @@ struct CartView: View {
                             Image(systemName: "paperclip")
                             
                         }
-                    }.padding()
+                    }
+                    .padding()
+                    
                     HStack {
                         if let cpu = cart.cpu {
                             Text(cpu.name)
