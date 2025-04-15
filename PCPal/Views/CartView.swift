@@ -27,6 +27,7 @@ struct CartView: View {
         Text("\nBuild Resources")
             .font(.largeTitle.bold())
             .foregroundStyle(.blue)
+        Spacer()
         NavigationStack {
             VStack {
                 HStack {
