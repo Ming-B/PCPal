@@ -1,22 +1,24 @@
+
 import Foundation
 
-struct Motherboard : Identifiable, Codable {
-    let id = UUID()
+
+struct Memory : Identifiable, Codable {
+    var id = UUID()
     var name: String
     var price: Double?
-    var socket: String?
-    var form_factor: String?
-    var max_memory: Int?
-    var memory_slots: Int?
+    var modules: [Int]?
+    var price_per_gb: Double?
     var color: String?
+    var first_word_latency: Double?
+    var cas_latency: Double?
 }
 
-func loadMotherboard(filename fileName: String) -> [Motherboard]? {
+func loadMemory(filename fileName: String) -> [Memory]? {
     if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let jsonData = try decoder.decode([Motherboard].self, from: data)
+            let jsonData = try decoder.decode([Memory].self, from: data)
             return jsonData
         } catch {
             print("error:\(error)")

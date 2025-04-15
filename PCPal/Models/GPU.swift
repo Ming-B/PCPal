@@ -1,20 +1,23 @@
 import Foundation
 
-struct CPUCooler : Identifiable, Codable {
-    let id = UUID()
+struct GPU : Identifiable, Codable {
+    var id = UUID()
     var name: String
     var price: Double?
+    var chipset: String?
+    var memory: Double?
+    var core_clock: Double?
     var boost_clock: Double?
-    var graphics: String?
-    var smt: Bool?
+    var color: String?
+    var length: Double?
 }
 
-func loadCooler(filename fileName: String) -> [CPUCooler]? {
+func loadJson(filename fileName: String) -> [GPU]? {
     if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
         do {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
-            let jsonData = try decoder.decode([CPUCooler].self, from: data)
+            let jsonData = try decoder.decode([GPU].self, from: data)
             return jsonData
         } catch {
             print("error:\(error)")
