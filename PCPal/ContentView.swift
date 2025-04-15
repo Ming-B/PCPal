@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    //@AppStorage("firstLoad") var firstLoad = true
     var body: some View {
-        //if(firstLoad)
         WelcomeScreenView()
     }
 }

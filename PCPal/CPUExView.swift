@@ -22,9 +22,9 @@ struct CPUExView: View {
                 
             Having an efficient CPU is critical for your PC to run at optimal levels. There are many benchmarks that make a CPU more efficient, however, the most imporant markers are: 
                 
-            - **Clock Speed (GHz)**: How many instructions the computer can process per second. Higher is better
-            - **Core Count**: Allows the CPU to handle tasks simultaneously more efficiently. Higher is better
-            - **Cache**: Ultra-fast memory storage. A larger cache is typically better
+            **Clock Speed (GHz)**- How many instructions the computer can process per second. Higher is better
+            **Core Count**- Allows the CPU to handle tasks simultaneously more efficiently. Higher is better
+            **Cache**- Ultra-fast memory storage. A larger cache is typically better
                         
             An important thing to note about the CPU is there are an incredible number of highly sensitive pins underneath the CPU casing that connect to the motherboard socket. These pins, if bent, can completely break the CPU. Thus, it is imporant to be careful when installing the CPU.
             """)
