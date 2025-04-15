@@ -42,7 +42,7 @@ struct CPUView: View {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
                             if let core_count = cpu.core_count {
-                                Text("Core Count - \(core_count, specifier: "%.2f")")
+                                Text("Core Count - \(core_count)")
                             }
                             if let core_clock = cpu.core_clock {
                                 Text("Core Clock - \(core_clock, specifier: "%.2f") GHz")
