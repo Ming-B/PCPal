@@ -46,7 +46,7 @@ struct MemoryView: View {
                                 Text("Size - \(totalSize) GB (\(modules.count) x \(modules.first ?? 0) GB)")
                             }
                             if let price_per_gb = memory.price_per_gb {
-                                Text("Price/GB - \(price_per_gb, specifier: "%.2f")")
+                                Text("Price/GB - $\(price_per_gb, specifier: "%.2f")")
                             }
                             if let color = memory.color {
                                 Text("Color - \(color)")

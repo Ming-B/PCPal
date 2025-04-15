@@ -48,7 +48,7 @@ struct PowerSupplyView: View {
                                 Text("Efficiency - \(efficiency)")
                             }
                             if let wattage = psu.wattage {
-                                Text("Wattage - \(wattage)")
+                                Text("Wattage - \(wattage) watts")
                             }
                             if let color = psu.color {
                                 Text("Color - \(color)")

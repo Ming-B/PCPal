@@ -48,10 +48,10 @@ struct ComputerCaseView: View {
                                 Text("Side Panel - \(side_panel)")
                             }
                             if let external_volume = computercase.external_volume {
-                                Text("External Volume - $\(external_volume, specifier: "%.2f")")
+                                Text("External Volume - \(external_volume, specifier: "%.2f")")
                             }
                             if let internal_35_bays = computercase.internal_35_bays {
-                                Text("Internal Bays - $\(internal_35_bays, specifier: "%.2f")")
+                                Text("Internal Bays - \(internal_35_bays)")
                             }
                         }
                     } else {

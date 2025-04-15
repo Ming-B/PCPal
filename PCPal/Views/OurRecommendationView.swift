@@ -31,7 +31,9 @@ struct OurRecommendationView: View {
                             CPU: AMD Ryzen 5 7600
                             GPU: NVIDIA GTX 1080 Ti
                             RAM: 32GB DDR4
+                            Motherboard: MSI B650 Gaming
                             Storage: 1 TB SSD
+                            PSU: 600+ Watts
                             OS: Windows 10 Home
                             """)
                 }
@@ -51,8 +53,10 @@ struct OurRecommendationView: View {
                     Text("""
                             CPU: AMD Ryzen 5 5600X
                             GPU: NVIDIA RTX 3060
-                            RAM: 16GB DDR4
-                            Storage: 1TB SSD
+                            RAM: 32GB DDR5
+                            Motherboard: MSI B550M Pro 
+                            Storage: 2TB SSD
+                            PSU: 800+ Watts
                             OS: Windows 11 Home
                             """)
                 }
@@ -73,7 +77,9 @@ struct OurRecommendationView: View {
                             CPU: Ryzen 7 9800X3D
                             GPU: NVIDIA RTX 4090
                             RAM: 32GB DDR5
+                            Motherboard: ASRock X870E Taichi
                             Storage: 2TB NVMe SSD
+                            PSU: 1200+ Watts
                             OS: Windows 11 Home
                             """)
                 }
