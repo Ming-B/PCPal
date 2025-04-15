@@ -13,7 +13,7 @@ struct MemoryView: View {
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
 
-    @State private var selectedMemoryName: String = "0"
+    @State private var selectedMemoryName: String = ""
 
     var cart: Cart {
         if let existingCart = carts.first {
@@ -65,7 +65,7 @@ struct MemoryView: View {
                 }
 
                 Picker("Select Memory", selection: $selectedMemoryName) {
-//                    Text("").tag("")
+                    Text("").tag("")
                     ForEach(memories, id: \.id) { memory in
                         Text(memory.name).tag(memory.name)
                     }
@@ -76,7 +76,7 @@ struct MemoryView: View {
         .onAppear {
             if let savedMemory = cart.memory {
                 selectedMemoryName = savedMemory.name
-                print(savedMemory)
+                //print(savedMemory)
             }
         }
         .onChange(of: selectedMemoryName) { oldValue, newName in

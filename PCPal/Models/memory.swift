@@ -19,7 +19,7 @@ func loadMemory(filename fileName: String) -> [Memory]? {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             let jsonData = try decoder.decode([Memory].self, from: data)
-            let oneThirdCount = max(1, jsonData.count / 5)
+            let oneThirdCount = max(1, jsonData.count / 50)
             return Array(jsonData.prefix(oneThirdCount))
         } catch {
             print("error:\(error)")
