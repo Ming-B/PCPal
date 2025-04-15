@@ -13,7 +13,7 @@ struct MemoryView: View {
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
 
-    @State private var selectedMemoryName: String = ""
+    @State private var selectedMemoryName: String = "0"
 
     var cart: Cart {
         if let existingCart = carts.first {
@@ -32,7 +32,7 @@ struct MemoryView: View {
     }
 
     var body: some View {
-        LazyVStack {
+        VStack {
             List {
                 HStack {
                     if let memory = cart.memory {
@@ -53,7 +53,7 @@ struct MemoryView: View {
                 }
 
                 Picker("Select Memory", selection: $selectedMemoryName) {
-                    Text("").tag("")
+//                    Text("").tag("")
                     ForEach(memories, id: \.id) { memory in
                         Text(memory.name).tag(memory.name)
                     }
