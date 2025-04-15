@@ -1,7 +1,7 @@
 import Foundation
 
 struct CPU : Identifiable, Codable {
-    var id = UUID()
+    let id = UUID()
     var name: String
     var price: Double?
     var core_count: Int?

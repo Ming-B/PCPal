@@ -1,7 +1,7 @@
 import Foundation
 
 struct CPUCooler : Identifiable, Codable {
-    var id = UUID()
+    let id = UUID()
     var name: String
     var price: Double?
     var boost_clock: Double?

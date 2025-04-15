@@ -1,7 +1,7 @@
 import Foundation
 
 struct ComputerCase : Identifiable, Codable {
-    var id = UUID()
+    let id = UUID()
     var name: String
     var type: String?
     var color: String?

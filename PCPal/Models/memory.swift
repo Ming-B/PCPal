@@ -3,7 +3,7 @@ import Foundation
 
 
 struct Memory : Identifiable, Codable {
-    var id = UUID()
+    let id = UUID()
     var name: String
     var price: Double?
     var modules: [Int]?
