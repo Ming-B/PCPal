@@ -12,9 +12,8 @@ struct CoolerView: View {
     @State var coolers: [CPUCooler]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-
     @State private var selectedCoolerName: String = ""
-
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,10 @@ struct CoolerView: View {
 
     var body: some View {
         VStack {
+            Text("Computer Cooler")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let cooler = cart.cooler {
@@ -76,7 +79,8 @@ struct CoolerView: View {
             if let newCooler = coolers.first(where: { $0.name == newName }) {
                 updateCooler(cooler: newCooler)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

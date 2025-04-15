@@ -12,9 +12,8 @@ struct MotherboardView: View {
     @State var Motherboards: [Motherboard]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-    
     @State private var selectedMotherboardName: String = ""
-    
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,10 @@ struct MotherboardView: View {
     
     var body: some View {
         VStack {
+            Text("Computer Motherboard")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let motherboard = cart.motherboard {
@@ -80,7 +83,8 @@ struct MotherboardView: View {
             if let newMotherboard = Motherboards.first(where: { $0.name == newName }) {
                 updateMotherboard(motherboard: newMotherboard)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

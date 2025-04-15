@@ -12,9 +12,8 @@ struct PowerSupplyView: View {
     @State var PSUS: [PSU]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-
     @State private var selectedPSUName: String = ""
-
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,10 @@ struct PowerSupplyView: View {
 
     var body: some View {
         VStack {
+            Text("Computer PSU")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let psu = cart.powersupply {
@@ -80,7 +83,8 @@ struct PowerSupplyView: View {
             if let newPSU = PSUS.first(where: { $0.name == newName }) {
                 updatePSU(psu: newPSU)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

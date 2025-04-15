@@ -12,9 +12,8 @@ struct GPUView: View {
     @State var GPUS: [GPU]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-    
     @State private var selectedGPUName: String = ""
-    
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,10 @@ struct GPUView: View {
     
     var body: some View {
         VStack {
+            Text("Computer GPU")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let gpu = cart.gpu {
@@ -84,7 +87,8 @@ struct GPUView: View {
             if let newGPU = GPUS.first(where: { $0.name == newName }) {
                 updateGPU(gpu: newGPU)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

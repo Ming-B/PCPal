@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct CPUView: View {
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     @State var CPUS: [CPU]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
@@ -33,6 +34,10 @@ struct CPUView: View {
 
     var body: some View {
         VStack {
+            Text("Computer CPU")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let cpu = cart.cpu {
@@ -81,7 +86,8 @@ struct CPUView: View {
             if let newCPU = CPUS.first(where: { $0.name == newName }) {
                 updateCPU(cpu: newCPU)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

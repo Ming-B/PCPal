@@ -2,6 +2,7 @@ import SwiftUI
 import WebKit
 
 struct MotherboardExView: View {
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var body: some View {
         ScrollView{
             VStack (alignment: .center, spacing: 16){
@@ -40,7 +41,8 @@ struct MotherboardExView: View {
                 }
                 Spacer()
             } .padding()
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

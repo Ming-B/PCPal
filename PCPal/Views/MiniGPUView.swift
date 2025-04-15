@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MiniGPUView: View {
     @Binding var GPU:GPU
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var body: some View {
         VStack (alignment: .leading){
             Text(GPU.name)
@@ -18,7 +19,8 @@ struct MiniGPUView: View {
             }
             Text("\(GPU.chipset ?? "")")
                 .fontWeight(.ultraLight)
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

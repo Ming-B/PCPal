@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ComputerPartsView: View {
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .center, spacing: 10) {
@@ -67,7 +68,8 @@ struct ComputerPartsView: View {
                 }
                 .listStyle(.plain)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

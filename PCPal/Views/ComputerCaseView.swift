@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ComputerCaseView: View {
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     @State var ComputerCases: [ComputerCase]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
@@ -33,6 +34,10 @@ struct ComputerCaseView: View {
 
     var body: some View {
         VStack {
+            Text("Computer Case")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let computercase = cart.computercase {
@@ -67,6 +72,7 @@ struct ComputerCaseView: View {
                 }
                 .pickerStyle(MenuPickerStyle())
             }
+            .listStyle(.plain)
         }
         .onAppear {
             if let savedComputerCase = cart.computercase {
@@ -78,7 +84,8 @@ struct ComputerCaseView: View {
             if let newComputerCase = ComputerCases.first(where: { $0.name == newName }) {
                 updateComputerCase(computercase: newComputerCase)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

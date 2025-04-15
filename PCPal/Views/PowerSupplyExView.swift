@@ -1,7 +1,7 @@
 import SwiftUI
 import WebKit
 
-struct PowerSupplyExView: View {
+struct PowerSupplyExView: View {    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var body: some View {
         ScrollView{
             VStack (alignment: .center, spacing: 16){
@@ -42,7 +42,8 @@ struct PowerSupplyExView: View {
                 }
                 Spacer()
             } .padding()
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

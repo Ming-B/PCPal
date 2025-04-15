@@ -11,7 +11,7 @@ struct OurRecommendationView: View {
     @State private var showBudgetDetails = false
     @State private var showMidDetails = false
     @State private var showHighDetails = false
-    
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -90,7 +90,8 @@ struct OurRecommendationView: View {
             }
             .padding()
         }
-        .background(Color(.systemGroupedBackground))
+        .background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+        .ignoresSafeArea(.keyboard)
     }
 }
 

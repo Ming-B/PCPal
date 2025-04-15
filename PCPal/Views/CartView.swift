@@ -11,6 +11,7 @@ import SwiftData
 struct CartView: View {
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     
     var cart: Cart {
         if let existingCart = carts.first {
@@ -32,7 +33,7 @@ struct CartView: View {
                 VStack {
                     HStack {
                         if let gpu = cart.gpu {
-                            Text(gpu.name)
+                            Text("GPU\n\(gpu.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -52,7 +53,7 @@ struct CartView: View {
                     
                     HStack {
                         if let cpu = cart.cpu {
-                            Text(cpu.name)
+                            Text("CPU\n\(cpu.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -70,12 +71,12 @@ struct CartView: View {
                     }.padding()
                     HStack {
                         if let motherboard = cart.motherboard {
-                            Text(motherboard.name)
+                            Text("Motherboard\n\(motherboard.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
                         else {
-                            Text("Select a Motherboard")
+                            Text("Select a Board")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -89,7 +90,7 @@ struct CartView: View {
                     
                     HStack {
                         if let memory = cart.memory {
-                            Text(memory.name)
+                            Text("Memory\n\(memory.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -108,7 +109,7 @@ struct CartView: View {
                     
                     HStack {
                         if let harddrive = cart.harddrive {
-                            Text(harddrive.name)
+                            Text("Storage\n\(harddrive.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -127,7 +128,7 @@ struct CartView: View {
                     
                     HStack {
                         if let cooler = cart.cooler {
-                            Text(cooler.name)
+                            Text("Cooler\n\(cooler.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -146,7 +147,7 @@ struct CartView: View {
                     
                     HStack {
                         if let powersupply = cart.powersupply {
-                            Text(powersupply.name)
+                            Text("PSU\n\(powersupply.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -165,7 +166,7 @@ struct CartView: View {
                     
                     HStack {
                         if let computercase = cart.computercase {
-                            Text(computercase.name)
+                            Text("Case\n\(computercase.name)")
                                 .font(.headline)
                                 .padding(20)
                         }
@@ -184,7 +185,8 @@ struct CartView: View {
                 }
             }
             .padding()
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

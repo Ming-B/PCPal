@@ -12,9 +12,8 @@ struct StorageView: View {
     @State var storages: [Storage]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-
     @State private var selectedStorageName: String = ""
-
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,10 @@ struct StorageView: View {
 
     var body: some View {
         VStack {
+            Text("Computer Storage")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
             List {
                 HStack {
                     if let storage = cart.harddrive {
@@ -79,7 +82,8 @@ struct StorageView: View {
             if let newStorage = storages.first(where: { $0.name == newName }) {
                 updateStorage(storage: newStorage)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 

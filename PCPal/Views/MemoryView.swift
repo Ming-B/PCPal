@@ -12,9 +12,8 @@ struct MemoryView: View {
     @State var memories: [Memory]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-
     @State private var selectedMemoryName: String = ""
-
+    @AppStorage("readerModeEnabled") private var readerModeEnabled = false
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -33,6 +32,11 @@ struct MemoryView: View {
 
     var body: some View {
         VStack {
+            Text("Computer Memory")
+                .font(.title)
+                .foregroundColor(Color.blue)
+                .padding()
+
             List {
                 HStack {
                     if let memory = cart.memory {
@@ -83,7 +87,8 @@ struct MemoryView: View {
             if let newMemory = memories.first(where: { $0.name == newName }) {
                 updateMemory(memory: newMemory)
             }
-        }
+        }.background(readerModeEnabled ? Color.yellow.opacity(0.2) : Color.white)
+            .ignoresSafeArea(.keyboard)
     }
 }
 
