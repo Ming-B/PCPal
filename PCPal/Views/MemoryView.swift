@@ -45,6 +45,18 @@ struct MemoryView: View {
                                 let totalSize = modules.reduce(0, +)
                                 Text("Size - \(totalSize) GB (\(modules.count) x \(modules.first ?? 0) GB)")
                             }
+                            if let price_per_gb = memory.price_per_gb {
+                                Text("Price/GB - \(price_per_gb, specifier: "%.2f")")
+                            }
+                            if let color = memory.color {
+                                Text("Color - \(color)")
+                            }
+                            if let first_word_latency = memory.first_word_latency {
+                                Text("First Word Latency - \(first_word_latency, specifier: "%.2f")")
+                            }
+                            if let cas_latency = memory.cas_latency {
+                                Text("CAS Latency - \(cas_latency, specifier: "%.2f")")
+                            }
                         }
                     } else {
                         Text("No Memory In Cart")
@@ -67,7 +79,7 @@ struct MemoryView: View {
                 print(savedMemory)
             }
         }
-        .onChange(of: selectedMemoryName) { newName in
+        .onChange(of: selectedMemoryName) { oldValue, newName in
             if let newMemory = memories.first(where: { $0.name == newName }) {
                 updateMemory(memory: newMemory)
             }
