@@ -17,7 +17,8 @@ func loadMotherboard(filename fileName: String) -> [Motherboard]? {
             let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             let jsonData = try decoder.decode([Motherboard].self, from: data)
-            return jsonData
+            let oneThirdCount = max(1, jsonData.count / 5)
+            return Array(jsonData.prefix(oneThirdCount))
         } catch {
             print("error:\(error)")
         }
