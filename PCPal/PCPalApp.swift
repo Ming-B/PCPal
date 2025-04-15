@@ -12,7 +12,7 @@ import SwiftData
 struct PCPalApp: App {
     var body: some Scene {
         WindowGroup {
-            CartView()
+            WelcomeScreenView()
         }
         .modelContainer(for: Cart.self)
     }
