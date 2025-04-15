@@ -40,6 +40,12 @@ struct WelcomeScreenView: View {
                             .font(.title3)
                             .padding(.vertical, 12)
                     }
+                    NavigationLink(destination: CartView()) {
+                        Image(systemName: "laptopcomputer")
+                        Text("PC Part Picker")
+                            .font(.title3)
+                            .padding(.vertical, 12)
+                    }
                 }
                 .listStyle(.plain)
             }
