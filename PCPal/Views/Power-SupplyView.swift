@@ -42,16 +42,16 @@ struct PowerSupplyView: View {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
                             if let type = psu.type {
-                                Text("Type - $\(type)")
+                                Text("Type - \(type)")
                             }
                             if let efficiency = psu.efficiency {
-                                Text("Efficiency - $\(efficiency)")
+                                Text("Efficiency - \(efficiency)")
                             }
                             if let wattage = psu.wattage {
-                                Text("Wattage - $\(wattage)")
+                                Text("Wattage - \(wattage)")
                             }
                             if let color = psu.color {
-                                Text("Color - $\(color)")
+                                Text("Color - \(color)")
                             }
                         }
                     } else {
@@ -61,6 +61,8 @@ struct PowerSupplyView: View {
                 }
 
                 Picker("Select Power Supply", selection: $selectedPSUName) {
+                    Text("").tag("")
+
                     ForEach(PSUS, id: \.id) { psu in
                         Text(psu.name).tag(psu.name)
                     }

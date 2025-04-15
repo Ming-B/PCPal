@@ -24,156 +24,164 @@ struct CartView: View {
     }
     
     var body: some View {
-        Text("\nBuild Resources")
+        Text("\n Part Picker")
             .font(.largeTitle.bold())
             .foregroundStyle(.blue)
         NavigationStack {
-            VStack {
-                HStack {
-                    if let gpu = cart.gpu {
-                        Text(gpu.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a GPU")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: GPUView(GPUS: loadJson(filename: "video-card") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+            ScrollView {
+                VStack {
+                    HStack {
+                        if let gpu = cart.gpu {
+                            Text(gpu.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a GPU")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let cpu = cart.cpu {
-                        Text(cpu.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a CPU")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: CPUView(CPUS: loadCPU(filename: "cpu") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: GPUView(GPUS: loadJson(filename: "video-card") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    HStack {
+                        if let cpu = cart.cpu {
+                            Text(cpu.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a CPU")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let motherboard = cart.motherboard {
-                        Text(motherboard.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a Motherboard")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: MotherboardView(Motherboards: loadMotherboard(filename: "motherboard") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: CPUView(CPUS: loadCPU(filename: "cpu") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    HStack {
+                        if let motherboard = cart.motherboard {
+                            Text(motherboard.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a Motherboard")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let memory = cart.memory {
-                        Text(memory.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select Memory")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: MemoryView(memories: loadMemory(filename: "memory") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: MotherboardView(Motherboards: loadMotherboard(filename: "motherboard") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    
+                    HStack {
+                        if let memory = cart.memory {
+                            Text(memory.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select Memory")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let harddrive = cart.harddrive {
-                        Text(harddrive.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select Storage")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: StorageView(storages: loadStorage(filename: "internal-hard-drive") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: MemoryView(memories: loadMemory(filename: "memory") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    
+                    HStack {
+                        if let harddrive = cart.harddrive {
+                            Text(harddrive.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select Storage")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let cooler = cart.cooler {
-                        Text(cooler.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a Cooler")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: CoolerView(coolers: loadCooler(filename: "cpu-cooler") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: StorageView(storages: loadStorage(filename: "internal-hard-drive") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    
+                    HStack {
+                        if let cooler = cart.cooler {
+                            Text(cooler.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a Cooler")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let powersupply = cart.powersupply {
-                        Text(powersupply.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a PSU")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: PowerSupplyView(PSUS: loadPSU(filename: "power-supply") ?? [])) {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: CoolerView(coolers: loadCooler(filename: "cpu-cooler") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    
+                    HStack {
+                        if let powersupply = cart.powersupply {
+                            Text(powersupply.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a PSU")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
-                }
-                HStack {
-                    if let computercase = cart.computercase {
-                        Text(computercase.name)
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    else {
-                        Text("Select a Case")
-                            .font(.headline)
-                            .padding(20)
-                    }
-                    Spacer()
-                    NavigationLink(destination: ComputerCaseView(ComputerCases: loadCase(filename: "case") ?? []))  {
-                        Text("  +  ")
-                            .font(.largeTitle)
+                        NavigationLink(destination: PowerSupplyView(PSUS: loadPSU(filename: "power-supply") ?? [])) {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
+                    
+                    HStack {
+                        if let computercase = cart.computercase {
+                            Text(computercase.name)
+                                .font(.headline)
+                                .padding(20)
+                        }
+                        else {
+                            Text("Select a Case")
+                                .font(.headline)
+                                .padding(20)
+                        }
                         Spacer()
-                    }
+                        NavigationLink(destination: ComputerCaseView(ComputerCases: loadCase(filename: "case") ?? []))  {
+                            Spacer()
+                            Image(systemName: "paperclip")
+                            
+                        }
+                    }.padding()
                 }
             }
+            .padding()
         }
     }
 }

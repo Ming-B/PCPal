@@ -45,10 +45,10 @@ struct CPUView: View {
                                 Text("Core Count - \(core_count, specifier: "%.2f")")
                             }
                             if let core_clock = cpu.core_clock {
-                                Text("Core Clock - \(core_clock)")
+                                Text("Core Clock - \(core_clock, specifier: "%.2f") GHz")
                             }
                             if let boost_clock = cpu.boost_clock {
-                                Text("Boost Clock - \(boost_clock)")
+                                Text("Boost Clock - \(boost_clock, specifier: "%.2f") GHz")
                             }
                             if let graphics = cpu.graphics {
                                 Text("Graphics - \(graphics)")

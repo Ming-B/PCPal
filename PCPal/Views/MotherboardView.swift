@@ -42,16 +42,16 @@ struct MotherboardView: View {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
                             if let socket = motherboard.socket {
-                                Text("Socket - $\(socket)")
+                                Text("Socket - \(socket)")
                             }
                             if let form_factor = motherboard.form_factor {
-                                Text("Form Factor - $\(form_factor)")
+                                Text("Form Factor - \(form_factor)")
                             }
                             if let max_memory = motherboard.max_memory {
-                                Text("Max Memory - $\(max_memory)")
+                                Text("Max Memory - \(max_memory)")
                             }
                             if let color = motherboard.color {
-                                Text("Color - $\(color)")
+                                Text("Color - \(color)")
                             }
                         }
                     } else {
@@ -61,6 +61,8 @@ struct MotherboardView: View {
                 }
                 
                 Picker("Select Motherboard", selection: $selectedMotherboardName) {
+                    Text("").tag("")
+
                     ForEach(Motherboards, id: \.id) { motherboard in
                         Text(motherboard.name).tag(motherboard.name)
                     }
