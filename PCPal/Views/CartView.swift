@@ -33,9 +33,15 @@ struct CartView: View {
                 VStack {
                     HStack {
                         if let gpu = cart.gpu {
-                            Text("GPU\n\(gpu.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("GPU")
+                                    .font(.headline)
+                                    .underline()
+                                Text(gpu.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a GPU")
@@ -53,9 +59,15 @@ struct CartView: View {
                     
                     HStack {
                         if let cpu = cart.cpu {
-                            Text("CPU\n\(cpu.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("CPU")
+                                    .font(.headline)
+                                    .underline()
+                                Text(cpu.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a CPU")
@@ -71,9 +83,15 @@ struct CartView: View {
                     }.padding()
                     HStack {
                         if let motherboard = cart.motherboard {
-                            Text("Motherboard\n\(motherboard.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("Motherboard")
+                                    .font(.headline)
+                                    .underline()
+                                Text(motherboard.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a Board")
@@ -90,9 +108,15 @@ struct CartView: View {
                     
                     HStack {
                         if let memory = cart.memory {
-                            Text("Memory\n\(memory.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("Memory")
+                                    .font(.headline)
+                                    .underline()
+                                Text(memory.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select Memory")
@@ -109,9 +133,15 @@ struct CartView: View {
                     
                     HStack {
                         if let harddrive = cart.harddrive {
-                            Text("Storage\n\(harddrive.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("Storage")
+                                    .font(.headline)
+                                    .underline()
+                                Text(harddrive.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select Storage")
@@ -128,9 +158,15 @@ struct CartView: View {
                     
                     HStack {
                         if let cooler = cart.cooler {
-                            Text("Cooler\n\(cooler.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("Cooler")
+                                    .font(.headline)
+                                    .underline()
+                                Text(cooler.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a Cooler")
@@ -147,9 +183,15 @@ struct CartView: View {
                     
                     HStack {
                         if let powersupply = cart.powersupply {
-                            Text("PSU\n\(powersupply.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("PSU")
+                                    .font(.headline)
+                                    .underline()
+                                Text(powersupply.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a PSU")
@@ -166,9 +208,15 @@ struct CartView: View {
                     
                     HStack {
                         if let computercase = cart.computercase {
-                            Text("Case\n\(computercase.name)")
-                                .font(.headline)
-                                .padding(20)
+                            VStack {
+                                Text("Case")
+                                    .font(.headline)
+                                    .underline()
+                                Text(computercase.name)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 20)
+                                    .padding(.horizontal, 20)
+                            }
                         }
                         else {
                             Text("Select a Case")
