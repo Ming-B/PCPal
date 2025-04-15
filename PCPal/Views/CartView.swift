@@ -27,95 +27,150 @@ struct CartView: View {
         Text("\nBuild Resources")
             .font(.largeTitle.bold())
             .foregroundStyle(.blue)
-        Spacer()
         NavigationStack {
             VStack {
                 HStack {
                     if let gpu = cart.gpu {
                         Text(gpu.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a GPU")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: GPUView(GPUS: loadJson(filename: "video-card") ?? [])) {
-                        Text("GPU")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let cpu = cart.cpu {
                         Text(cpu.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a CPU")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: CPUView(CPUS: loadCPU(filename: "cpu") ?? [])) {
-                        Text("CPU")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let motherboard = cart.motherboard {
                         Text(motherboard.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a Motherboard")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: MotherboardView(Motherboards: loadMotherboard(filename: "motherboard") ?? [])) {
-                        Text("Motherboard")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let memory = cart.memory {
                         Text(memory.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select Memory")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: MemoryView(memories: loadMemory(filename: "memory") ?? [])) {
-                        Text("Memory")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let harddrive = cart.harddrive {
                         Text(harddrive.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select Storage")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: StorageView(storages: loadStorage(filename: "internal-hard-drive") ?? [])) {
-                        Text("Hard Drive")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let cooler = cart.cooler {
                         Text(cooler.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a Cooler")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: CoolerView(coolers: loadCooler(filename: "cpu-cooler") ?? [])) {
-                        Text("CPU Coolers")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let powersupply = cart.powersupply {
                         Text(powersupply.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a PSU")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: PowerSupplyView(PSUS: loadPSU(filename: "power-supply") ?? [])) {
-                        Text("Power Supply")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
                 HStack {
                     if let computercase = cart.computercase {
                         Text(computercase.name)
+                            .font(.headline)
+                            .padding(20)
                     }
                     else {
-                        Text("None")
+                        Text("Select a Case")
+                            .font(.headline)
+                            .padding(20)
                     }
+                    Spacer()
                     NavigationLink(destination: ComputerCaseView(ComputerCases: loadCase(filename: "case") ?? []))  {
-                        Text("Computer Case")
+                        Text("  +  ")
+                            .font(.largeTitle)
+                        Spacer()
                     }
                 }
             }
