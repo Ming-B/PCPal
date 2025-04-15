@@ -41,6 +41,21 @@ struct CPUView: View {
                             if let price = cpu.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
+                            if let core_count = cpu.core_count {
+                                Text("Core Count - \(core_count, specifier: "%.2f")")
+                            }
+                            if let core_clock = cpu.core_clock {
+                                Text("Core Clock - \(core_clock)")
+                            }
+                            if let boost_clock = cpu.boost_clock {
+                                Text("Boost Clock - \(boost_clock)")
+                            }
+                            if let graphics = cpu.graphics {
+                                Text("Graphics - \(graphics)")
+                            }
+                            if let smt = cpu.smt {
+                                Text("SMT - \(smt)")
+                            }
                         }
                     } else {
                         Text("No CPU In Cart")

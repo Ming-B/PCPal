@@ -41,6 +41,18 @@ struct MotherboardView: View {
                             if let price = motherboard.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
+                            if let socket = motherboard.socket {
+                                Text("Socket - $\(socket)")
+                            }
+                            if let form_factor = motherboard.form_factor {
+                                Text("Form Factor - $\(form_factor)")
+                            }
+                            if let max_memory = motherboard.max_memory {
+                                Text("Max Memory - $\(max_memory)")
+                            }
+                            if let color = motherboard.color {
+                                Text("Color - $\(color)")
+                            }
                         }
                     } else {
                         Text("No Motherboard In Cart")

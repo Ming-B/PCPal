@@ -44,6 +44,15 @@ struct StorageView: View {
                             if let capacity = storage.capacity {
                                 Text("Capacity - \(capacity, specifier: "%.0f") GB")
                             }
+                            if let price_per_gb = storage.price_per_gb {
+                                Text("Price/GB - \(price_per_gb, specifier: "%.0f") GB")
+                            }
+                            if let cache = storage.cache {
+                                Text("Cache - \(cache)")
+                            }
+                            if let interface = storage.interface {
+                                Text("Interface - \(interface)")
+                            }
                         }
                     } else {
                         Text("No Storage In Cart")

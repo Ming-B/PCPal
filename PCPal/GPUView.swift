@@ -12,9 +12,9 @@ struct GPUView: View {
     @State var GPUS: [GPU]
     @Query var carts: [Cart]
     @Environment(\.modelContext) private var modelContext
-
+    
     @State private var selectedGPUName: String = ""
-
+    
     var cart: Cart {
         if let existingCart = carts.first {
             return existingCart
@@ -25,12 +25,12 @@ struct GPUView: View {
             return newCart
         }
     }
-
+    
     func updateGPU(gpu: GPU) {
         cart.gpu = gpu
         try? modelContext.save()
     }
-
+    
     var body: some View {
         VStack {
             List {
@@ -41,8 +41,23 @@ struct GPUView: View {
                             if let price = gpu.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
+                            if let chipset = gpu.chipset {
+                                Text("Chipset - \(chipset)")
+                            }
                             if let memory = gpu.memory {
                                 Text("Memory - \(memory, specifier: "%.0f") GB")
+                            }
+                            if let core_clock = gpu.core_clock {
+                                Text("Core Clock - $\(core_clock, specifier: "%.2f")")
+                            }
+                            if let boost_clock = gpu.boost_clock {
+                                Text("Boost Clock - $\(boost_clock, specifier: "%.2f")")
+                            }
+                            if let color = gpu.color {
+                                Text("Color - \(color)")
+                            }
+                            if let length = gpu.length {
+                                Text("Length - $\(length, specifier: "%.2f")")
                             }
                         }
                     } else {
@@ -50,7 +65,7 @@ struct GPUView: View {
                             .foregroundColor(.gray)
                     }
                 }
-
+                
                 Picker("Select GPU", selection: $selectedGPUName) {
                     ForEach(GPUS, id: \.name) { gpu in
                         Text(gpu.name).tag(gpu.name)

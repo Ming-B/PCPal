@@ -41,6 +41,18 @@ struct PowerSupplyView: View {
                             if let price = psu.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
+                            if let type = psu.type {
+                                Text("Type - $\(type)")
+                            }
+                            if let efficiency = psu.efficiency {
+                                Text("Efficiency - $\(efficiency)")
+                            }
+                            if let wattage = psu.wattage {
+                                Text("Wattage - $\(wattage)")
+                            }
+                            if let color = psu.color {
+                                Text("Color - $\(color)")
+                            }
                         }
                     } else {
                         Text("No Power Supply In Cart")

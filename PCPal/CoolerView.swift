@@ -41,6 +41,15 @@ struct CoolerView: View {
                             if let price = cooler.price {
                                 Text("Price - $\(price, specifier: "%.2f")")
                             }
+                            if let boost_clock = cooler.boost_clock {
+                                Text("Boost Clock - $\(boost_clock, specifier: "%.2f")")
+                            }
+                            if let graphics = cooler.graphics {
+                                Text("Graphics - \(graphics)")
+                            }
+                            if let smt = cooler.smt {
+                                Text("SMT - \(smt)")
+                            }
                         }
                     } else {
                         Text("No Cooler In Cart")
