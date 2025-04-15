@@ -32,7 +32,7 @@ struct MemoryView: View {
     }
 
     var body: some View {
-        VStack {
+        LazyVStack {
             List {
                 HStack {
                     if let memory = cart.memory {
@@ -53,7 +53,8 @@ struct MemoryView: View {
                 }
 
                 Picker("Select Memory", selection: $selectedMemoryName) {
-                    ForEach(memories, id: \.name) { memory in
+                    Text("").tag("")
+                    ForEach(memories, id: \.id) { memory in
                         Text(memory.name).tag(memory.name)
                     }
                 }

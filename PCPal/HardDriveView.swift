@@ -52,7 +52,7 @@ struct StorageView: View {
                 }
 
                 Picker("Select Storage", selection: $selectedStorageName) {
-                    ForEach(storages, id: \.name) { storage in
+                    ForEach(storages, id: \.id) { storage in
                         Text(storage.name).tag(storage.name)
                     }
                 }

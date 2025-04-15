@@ -52,7 +52,7 @@ struct GPUView: View {
                 }
 
                 Picker("Select GPU", selection: $selectedGPUName) {
-                    ForEach(GPUS, id: \.name) { gpu in
+                    ForEach(GPUS, id: \.id) { gpu in
                         Text(gpu.name).tag(gpu.name)
                     }
                 }

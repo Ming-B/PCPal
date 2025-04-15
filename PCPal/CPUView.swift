@@ -49,7 +49,7 @@ struct CPUView: View {
                 }
 
                 Picker("Select CPU", selection: $selectedCPUName) {
-                    ForEach(CPUS, id: \.name) { cpu in
+                    ForEach(CPUS, id: \.id) { cpu in
                         Text(cpu.name).tag(cpu.name)
                     }
                 }

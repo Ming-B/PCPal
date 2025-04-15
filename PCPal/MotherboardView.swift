@@ -49,7 +49,7 @@ struct MotherboardView: View {
                 }
                 
                 Picker("Select Motherboard", selection: $selectedMotherboardName) {
-                    ForEach(Motherboards, id: \.name) { motherboard in
+                    ForEach(Motherboards, id: \.id) { motherboard in
                         Text(motherboard.name).tag(motherboard.name)
                     }
                 }

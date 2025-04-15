@@ -49,7 +49,7 @@ struct CoolerView: View {
                 }
 
                 Picker("Select Cooler", selection: $selectedCoolerName) {
-                    ForEach(coolers, id: \.name) { cooler in
+                    ForEach(coolers, id: \.id) { cooler in
                         Text(cooler.name).tag(cooler.name)
                     }
                 }
