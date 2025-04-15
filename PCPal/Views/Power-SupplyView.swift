@@ -61,7 +61,7 @@ struct PowerSupplyView: View {
                 }
 
                 Picker("Select Power Supply", selection: $selectedPSUName) {
-                    ForEach(PSUS, id: \.name) { psu in
+                    ForEach(PSUS, id: \.id) { psu in
                         Text(psu.name).tag(psu.name)
                     }
                 }

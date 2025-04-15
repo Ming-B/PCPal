@@ -61,7 +61,7 @@ struct ComputerCaseView: View {
                 }
 
                 Picker("Select Computer Case", selection: $selectedComputerCaseName) {
-                    ForEach(ComputerCases, id: \.name) { computercase in
+                    ForEach(ComputerCases, id: \.id) { computercase in
                         Text(computercase.name).tag(computercase.name)
                     }
                 }
